@@ -30,7 +30,7 @@ Visit **[EMCP Platform](https://sit-emcp.kaleido.guru)** now to start your MCP j
 
 ## Introduction
 
-This is an automatically generated MCP server using [FastMCP](https://fastmcp.wiki) for accessing the Weather Api167 API.
+This is an MCP server for accessing the Weather Api167 API.
 
 - **PyPI Package**: `bach-weather_api167`
 - **Version**: 1.0.0
@@ -108,8 +108,8 @@ export API_KEY="your_api_key_here"
 {
   "mcpServers": {
     "weather_api167": {
-      "command": "python",
-      "args": ["E:\path\to\weather_api167\server.py"],
+      "command": "uvx",
+      "args": ["--from", "bach-weather_api167", "bach_weather_api167"],
       "env": {
         "API_KEY": "your_api_key_here"
       }

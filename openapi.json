@@ -1,0 +1,558 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Weather Api167",
+    "version": "1.0.0",
+    "description": "RapidAPI: maruf111/weather-api167"
+  },
+  "servers": [
+    {
+      "url": "https://weather-api167.p.rapidapi.com"
+    }
+  ],
+  "paths": {
+    "/api/weather/forecast": {
+      "get": {
+        "summary": "forecast weather",
+        "description": "Fetch forecast weather data using  coordinate value, place name or zip code",
+        "operationId": "forecast_weather",
+        "parameters": [
+          {
+            "name": "lon",
+            "in": "query",
+            "required": false,
+            "description": "Longitude coordinate(Note. lat and lon value has priority over both place and zip value). use the lat and lon for more accurate and reliable weather data",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": false,
+            "description": "Latitude coordinate(Note. lat and lon value has priority over both place and zip value). use the lat and lon for more accurate and reliable weather data",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "place",
+            "in": "query",
+            "required": false,
+            "description": "City name, state code (only for the US) and country code divided by comma like Zion,VA,US . Please use ISO 3166 country codes. Note. place value has priority over zip value",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "required": false,
+            "description": "Zip code with optional country code(Note. Zip value will only be used if both lat,lon and place name not provided)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "cnt",
+            "in": "query",
+            "required": false,
+            "description": "Number of timestamps to retrieve (up to a maximum allowed by the API)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "required": false,
+            "description": "Unit type (standard, metric, and imperial)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Forcast Type",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Mode type",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "description": "Language type",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weather/country/detail": {
+      "get": {
+        "summary": "country info",
+        "description": "Return detail for given country",
+        "operationId": "country_info",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Example value: United Kingdom",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weather/us/alert": {
+      "get": {
+        "summary": "US weather alert data",
+        "description": "US weather alert daily information for given region or area and other filtering parameter",
+        "operationId": "us_weather_alert_data",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "use comm(,) to separate multiple value",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "message_type",
+            "in": "query",
+            "required": false,
+            "description": "Example value: alert,update,cancel",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "area",
+            "in": "query",
+            "required": false,
+            "description": "example AM,AN",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "required": false,
+            "description": "Example value: AL,AT",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "zone",
+            "in": "query",
+            "required": false,
+            "description": "Example>> OKZ929",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "region_type",
+            "in": "query",
+            "required": false,
+            "description": "Example>> marine,land This value can't be used in combination with area or region",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "urgency",
+            "in": "query",
+            "required": false,
+            "description": "Example value: Immediate,Expected",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "required": false,
+            "description": "Example value: Extreme,Severe,Moderate",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "certainty",
+            "in": "query",
+            "required": false,
+            "description": "Example value: Observed,Likely,Possible,Unlikely,Unknown",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Example value: 500",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weather/us/zone": {
+      "get": {
+        "summary": "US Zone List",
+        "description": "Zone list for US given state or All Zone list if state not given",
+        "operationId": "us_zone_list",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "description": "Example value: WY",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weather/earthquake": {
+      "get": {
+        "summary": "earthquake data",
+        "description": "Near real time earthquake for given country",
+        "operationId": "earthquake_data",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "description": "Example value: US",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "required": false,
+            "description": "Example value: ",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weather/current": {
+      "get": {
+        "summary": "current weather",
+        "description": "Fetch current weather data using  coordinate value, place name or zip code",
+        "operationId": "current_weather",
+        "parameters": [
+          {
+            "name": "lon",
+            "in": "query",
+            "required": false,
+            "description": "Longitude coordinate(Note. lat and lon value has priority over both place and zip value). use the lat and lon for more accurate and reliable weather data",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": false,
+            "description": "Latitude coordinate(Note. lat and lon value has priority over both place and zip value). use the lat and lon for more accurate and reliable weather data",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "place",
+            "in": "query",
+            "required": false,
+            "description": "City name, state code (only for the US) and country code divided by comma use like Zion,VA,US . Please use ISO 3166 country codes. Note. place value has priority over zip value",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "required": false,
+            "description": "Zip code with optional country code(Note. Zip value will only be used if both lat,lon and place name not provided)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "required": false,
+            "description": "Unit type (standard, metric, and imperial)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "description": "Language type",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "Mode type",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/weather/air_pollution": {
+      "get": {
+        "summary": "air pollution data",
+        "description": "Fetch air pollution data using  coordinate value, place name or zip code",
+        "operationId": "air_pollution_data",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "required": false,
+            "description": "Latitude coordinate(Note. lat and lon value has priority over both place and zip value). use the lat and lon for more accurate and reliable weather data",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "required": false,
+            "description": "Longitude coordinate(Note. lat and lon value has priority over both place and zip value). use the lat and lon for more accurate and reliable weather data",
+            "schema": {
+              "type": "string",
+              "default": "0",
+              "enum": null
+            }
+          },
+          {
+            "name": "place",
+            "in": "query",
+            "required": false,
+            "description": "City name, state code (only for the US) and country code divided by comma like Zion,VA,US . Please use ISO 3166 country codes Note. place value has priority over zip value",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "required": false,
+            "description": "Zip code with optional country code(Note. Zip value will only be used if both lat,lon and place name not provided)",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Data for air pulltion type",
+            "schema": {
+              "type": "string",
+              "default": null,
+              "enum": null
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-RapidAPI-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiAuth": []
+    }
+  ]
+}
