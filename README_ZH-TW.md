@@ -33,7 +33,7 @@
 這是一個 MCP 伺服器，用於存取 Weather Api167 API。
 
 - **PyPI 套件名**: `bach-weather_api167`
-- **版本**: 1.0.0
+- **版本**: 2.0.0
 - **傳輸協定**: stdio
 
 
@@ -306,4 +306,4 @@ Fetch air pollution data using  coordinate value, place name or zip code
 
 此伺服器由 [API-to-MCP](https://github.com/BACH-AI-Tools/api-to-mcp) 工具自動生成。
 
-版本: 1.0.0
+版本: 2.0.0
