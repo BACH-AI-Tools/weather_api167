@@ -13,8 +13,8 @@ import httpx
 from fastmcp import FastMCP
 
 # 服务器版本和配置
-__version__ = "2.0.0"
-__tag__ = "weather_api167/2.0.0"
+__version__ = "2.1.0"
+__tag__ = "weather_api167/2.1.0"
 
 # API 配置
 API_KEY = os.getenv("API_KEY", "")
@@ -40,9 +40,9 @@ if API_KEY:
     default_headers["X-RapidAPI-Key"] = API_KEY
     default_headers["X-RapidAPI-Host"] = "weather-api167.p.rapidapi.com"
 else:
-    print("⚠️  警告: 未设置 API_KEY 环境变量")
-    print("   RapidAPI 需要 API Key 才能正常工作")
-    print("   请设置: export API_KEY=你的RapidAPI-Key")
+    print("[WARNING] 未设置 API_KEY 环境变量")
+    print("          RapidAPI 需要 API Key 才能正常工作")
+    print("          请设置: export API_KEY=你的RapidAPI-Key")
 
 # 对于 POST/PUT/PATCH 请求，自动添加 Content-Type
 default_headers["Content-Type"] = "application/json"
@@ -80,7 +80,7 @@ async def _add_rapidapi_headers(method, url, **kwargs):
         kwargs['headers']['X-RapidAPI-Key'] = API_KEY
         kwargs['headers']['X-RapidAPI-Host'] = "weather-api167.p.rapidapi.com"
     else:
-        print("⚠️  警告: API_KEY 未设置，请求可能失败")
+        print("[WARNING] API_KEY 未设置，请求可能失败")
     
     # 对于 POST/PUT/PATCH，添加 Content-Type
     if method.upper() in ['POST', 'PUT', 'PATCH']:
@@ -95,9 +95,9 @@ client.request = _add_rapidapi_headers
 
 def main():
     """主入口点"""
-    print(f"🚀 启动 Weather Api167 MCP 服务器")
-    print(f"📦 版本: {__tag__}")
-    print(f"🔧 传输协议: {TRANSPORT}")
+    print(f"[START] Weather Api167 MCP Server")
+    print(f"[VERSION] {__tag__}")
+    print(f"[TRANSPORT] {TRANSPORT}")
     
     print()
     
