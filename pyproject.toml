@@ -1,6 +1,6 @@
 [project]
 name = "bach-weather_api167"
-version = "2.1.0"
+version = "2.0.2"
 description = "RapidAPI: maruf111/weather-api167"
 readme = "README.md"
 requires-python = ">=3.10"
